@@ -81,7 +81,7 @@ button{
   <body>
     <div class="outer-container1">
       <div class="register-box">
-        <form action="">
+        <form action="{{url_for('register_as_pro')}}" method="POST">
           <div class="container">
             <div class="d-flex"><h1>Register as professioal</h1></div>
             <div class="row">
@@ -91,6 +91,7 @@ button{
                   <input
                     type="email"
                     class="form-control"
+                    name="mail"
                     aria-describedby="emailHelp"
                     placeholder="Enter email"
                   />
@@ -101,8 +102,8 @@ button{
                   <label for="exampleInputPassword1">Password</label>
                   <input
                     type="password"
+                    name="password"
                     class="form-control"
-                    id="exampleInputPassword1"
                     placeholder="Password"
                   />
                 </div>
@@ -118,6 +119,7 @@ button{
                   <input
                     type="text"
                     class="form-control"
+                    name="fullname"
                     aria-describedby="emailHelp"
                     placeholder="Full Name"
                   />
@@ -126,7 +128,7 @@ button{
               <div class="col">
                 <div class="form-group">
                   <label for="exampleInputPassword1">Service</label>
-                  <select class="form-control">
+                  <select class="form-control" name="service">
                     <option>AC</option>
                     <option>Refregarator</option>
                     <option>TV repair</option>
@@ -143,6 +145,7 @@ button{
                   <label>Experience(in years)</label>
                   <input
                     type="number"
+                    name="experience"
                     class="form-control"
                     aria-describedby="emailHelp"
                     placeholder="Experience"
@@ -167,14 +170,14 @@ button{
            <div class="container">
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Address</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea class="form-control" name="address" rows="3"></textarea>
             </div>
            </div>
            <!-- fourth -->
            <div class="container">
             <div class="custom-file inp mb-3" >
                 <label class="margin-down">Upload Documents(PDF only)</label><br>
-              <input type="file" class="custom-file-input" id="customFile" name="filename">
+              <input type="file" class="custom-file-input" name="doc" name="filename">
               <br>
             </div>
            </div>
@@ -182,6 +185,7 @@ button{
 
             <div class="container d-flex justify-content-center align-items-center">
               <button class="btn btn-primary" type="submit">Register</button>
+              <p>{{user_e }}</p>
             </div>
 
         </form>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resister</title>
+    <title>Register</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -23,93 +23,84 @@
     />
     <style>
       * {
-  margin: 0;
-  padding: 0;
-}
-body {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-
-.outer-container1{
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-.register-box{
-  min-width: 300px;
-  padding: 20px;
-  display: flex;
-  border-radius: 6px;
-  background-color: white;
-  justify-content:center;
-  flex-direction: column;
-  width: 650px;
-  border: 2px solid black;
-}
-a{
-  color: black;
-  text-decoration: none;
-}
-.route-to-index{
-  color: black;
-  text-decoration: none;
-}
-
-
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      .outer-container1 {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .register-box {
+        min-width: 300px;
+        padding: 20px;
+        display: flex;
+        border-radius: 6px;
+        background-color: white;
+        justify-content: center;
+        flex-direction: column;
+        width: 650px;
+        border: 2px solid black;
+      }
+      a {
+        color: black;
+        text-decoration: none;
+      }
+      .route-to-index {
+        color: black;
+        text-decoration: none;
+      }
+      button:hover {
+        background-color: #0056b3; /* Darker shade of the primary color */
+      }
+      .route-to-index:hover {
+        text-decoration: underline; /* Add underline effect on hover */
+      }
     </style>
   </head>
   <body>
     <div class="outer-container1">
       <div class="register-box">
         <div class="container">
-          <form action="url-for('register')" method="POST">
+          <form action="/register" method="POST">
             <div class="heading d-flex justify-content-center">
               <h1>Register</h1>
             </div>
             <div class="form-group m-2">
-              <label  >Email</label>
-              <input name = "mail" class="form-control" type="text" placeholder="Mail" />
+              <label>Email</label>
+              <input name="mail" class="form-control" type="email" placeholder="example@mail.com" required />
             </div>
             <div class="form-group m-2">
-              <label  for="exampleInputPassword1">Password</label>
-              <input
-                type="text"
-                name = "password"
-                class="form-control"
-                id="exampleInputPassword1"
-                placeholder="Password"
-              />
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" name="password" class="form-control" placeholder="Password" required minlength="6" />
             </div>
             <div class="form-group m-2">
-              <label for="exampleInputPassword1">Full Name</label>
-              <input type="text" name="fullname" class="form-control" placeholder="Full Name" />
+              <label>Full Name</label>
+              <input type="text" name="fullname" class="form-control" placeholder="Full Name" required />
             </div>
             <div class="form-group m-2">
               <label for="exampleFormControlTextarea1">Address</label>
-              <textarea
-                class="form-control"
-                name="address"
-                id="exampleFormControlTextarea1"
-                rows="3"
-              ></textarea>
+              <textarea class="form-control" name="address" id="exampleFormControlTextarea1" rows="3" required></textarea>
             </div>
-            <div style="  margin-bottom: 10px;" class="form-group m-2">
-              <label for="exampleInputPassword1">Pin Code</label>
-              <input type="text" name="pincode" class="form-control" placeholder="Pin Code" />
+            <div style="margin-bottom: 10px;" class="form-group m-2">
+              <label>Pin Code</label>
+              <input type="text" name="pincode" class="form-control" placeholder="Postal Code (e.g., 123456)" required />
             </div>
             <div class="container m-2 d-flex justify-content-center">
-              <button style="width: 50%" type="submit" class="btn btn-primary">
-                Register
-              </button>
+              <button style="width: 50%" type="submit" class="btn btn-primary">Register</button>
             </div>
             <div class="container m-2 d-flex justify-content-center">
-                <a class="route-to-index" href="">Login?</a>
+              <a class="route-to-index" href="/login">Login?</a><br />
+              {% if user_e %}
+                <p style="color:red;">{{ user_e }}</p>
+              {% endif %}
             </div>
           </form>
         </div>
